@@ -1,0 +1,133 @@
+:root {
+  --paper: #fbf8f1;        /* 纸白 */
+  --paper-card: #fffef9;
+  --ink: #33333a;          /* 墨灰 */
+  --ink-soft: #6f6f76;
+  --ink-faint: #9c9ca3;
+  --line: #e6e1d6;
+  --stamp: #8c3b2e;        /* 印章红，唯一功能色 */
+  --ok: #2f5d50;
+  --warn: #b07a1e;
+  --bad: #a43c2f;
+  --math: #34507a;         /* 高数封面色 */
+  --eng: #7a3b52;          /* 英语封面色 */
+  --cs: #2f5d50;           /* 计算机封面色 */
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 15px/1.65 "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC",
+        "SimSun", Georgia, serif;
+}
+a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--ink-faint); }
+a:hover { color: var(--stamp); border-bottom-color: var(--stamp); }
+
+.topbar {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  padding: 12px 26px; background: var(--paper-card);
+  border-bottom: 2px solid var(--ink);
+}
+.brand { font-size: 19px; font-weight: 700; letter-spacing: 2px; }
+.brand small { color: var(--ink-soft); font-weight: 400; letter-spacing: 0; margin-left: 8px; }
+.nav { display: flex; gap: 14px; flex-wrap: wrap; }
+.nav a { border: none; padding: 3px 10px; color: var(--ink-soft); }
+.nav a.on, .nav a:hover { color: var(--paper); background: var(--ink); border-radius: 2px; }
+.spacer { flex: 1; }
+.who { color: var(--ink-soft); font-size: 13px; }
+.who b { color: var(--ink); }
+
+.wrap { max-width: 1080px; margin: 26px auto; padding: 0 22px; }
+h1 { font-size: 21px; margin: 4px 0 2px; letter-spacing: 1px; }
+.subtitle { color: var(--ink-soft); font-size: 13px; margin-bottom: 20px; }
+h2 { font-size: 16px; margin: 30px 0 10px; padding-left: 10px;
+     border-left: 4px solid var(--ink); letter-spacing: 1px; }
+
+.card {
+  background: var(--paper-card); border: 1px solid var(--line);
+  border-radius: 3px; padding: 16px 18px; margin-bottom: 18px;
+  box-shadow: 0 1px 0 rgba(60,55,45,.04);
+}
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line);
+         vertical-align: top; }
+th { color: var(--ink-soft); font-weight: 600; font-size: 12.5px;
+     letter-spacing: 1px; white-space: nowrap; }
+tr:last-child td { border-bottom: none; }
+
+.badge { display: inline-block; padding: 1px 9px; border-radius: 10px;
+         font-size: 12px; line-height: 1.7; white-space: nowrap; }
+.b-gray  { background: #ece9e2; color: var(--ink-soft); }
+.b-blue  { background: #e6ecf3; color: var(--math); }
+.b-green { background: #e4efeb; color: var(--ok); }
+.b-amber { background: #f6ecd8; color: var(--warn); }
+.b-red   { background: #f5e2de; color: var(--bad); }
+.b-stamp { background: #f3e2de; color: var(--stamp); border: 1px solid #d8b3ab; }
+
+.countdown { font-weight: 700; }
+.countdown.urgent { color: var(--stamp); }
+.miss { color: var(--bad); font-weight: 700; }
+.miss.zero { color: var(--ok); font-weight: 400; }
+
+.book-dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px;
+            margin-right: 5px; vertical-align: 1px; }
+.muted { color: var(--ink-faint); }
+.small { font-size: 12.5px; }
+.addr { color: var(--ink-soft); font-size: 13px; }
+.edition-note { background: #f7f2e7; border-left: 3px solid var(--warn);
+                padding: 8px 12px; font-size: 13px; color: #5c4a22;
+                border-radius: 0 2px 2px 0; margin: 6px 0; }
+.internal-note { background: #efeef0; border-left: 3px solid var(--ink-soft);
+                 padding: 7px 12px; font-size: 12.5px; color: var(--ink-soft);
+                 border-radius: 0 2px 2px 0; }
+.tag-staff { font-size: 11px; color: var(--paper); background: var(--ink-faint);
+             padding: 0 6px; border-radius: 2px; margin-left: 6px; }
+
+.btn, button {
+  font: inherit; font-size: 13.5px; padding: 5px 14px; cursor: pointer;
+  background: var(--ink); color: var(--paper); border: 1px solid var(--ink);
+  border-radius: 2px; letter-spacing: 1px;
+}
+.btn:hover, button:hover { background: #111116; }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: #eeeae1; color: var(--ink); }
+.btn-stamp { background: var(--stamp); border-color: var(--stamp); }
+.btn-stamp:hover { background: #74301f; }
+button:disabled { background: #cfcbc2; border-color: #cfcbc2;
+                  color: #8b8b90; cursor: not-allowed; }
+.inline { display: inline; }
+.inline button { margin-right: 6px; }
+
+input[type=text], input[type=tel], select, textarea {
+  font: inherit; font-size: 13.5px; padding: 6px 9px;
+  border: 1px solid #d3cdbf; border-radius: 2px; background: #fffef9;
+  color: var(--ink); width: 100%;
+}
+textarea { min-height: 54px; resize: vertical; }
+label { font-size: 12.5px; color: var(--ink-soft); display: block; margin: 8px 0 3px; }
+.form-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.form-row > div { flex: 1; min-width: 180px; }
+
+.flash { padding: 10px 14px; border-radius: 2px; margin-bottom: 16px; font-size: 13.5px; }
+.flash-ok { background: #e4efeb; color: var(--ok); border: 1px solid #b9d5cb; }
+.flash-err { background: #f5e2de; color: var(--bad); border: 1px solid #e0bbb5; }
+
+.timeline { list-style: none; margin: 6px 0 0; padding: 0; }
+.timeline li { position: relative; padding: 4px 0 8px 20px; border-left: 2px solid var(--line);
+               margin-left: 5px; font-size: 13.5px; }
+.timeline li::before { content: ""; position: absolute; left: -6px; top: 10px;
+                       width: 9px; height: 9px; background: var(--paper-card);
+                       border: 2px solid var(--ink-soft); border-radius: 50%; }
+.timeline li:last-child { border-left-color: transparent; }
+.timeline .t-at { color: var(--ink-faint); font-size: 12px; margin-right: 8px; }
+
+.proof img { max-width: 220px; border: 1px solid var(--line); padding: 4px;
+             background: #fff; }
+.sheet { border: 1.5px dashed var(--ink-faint); padding: 22px 26px; background: #fffefb; }
+.sheet-head { display: flex; justify-content: space-between; border-bottom: 2px solid var(--ink);
+              padding-bottom: 10px; margin-bottom: 14px; }
+.sheet h1 { border: none; }
+.sheet .big { font-size: 17px; }
+.trackno { font-family: "Courier New", monospace; letter-spacing: 3px; font-size: 18px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+.student-scope-note { font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
